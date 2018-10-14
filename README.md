@@ -1,0 +1,47 @@
+# Better Build File Names
+
+When you have a very large file projects with many subprojects,
+you can end up with the problem where you end up with a bunch of files all called `build.gradle` or `build.gradle.kts`.
+
+There is a little known fact that you don't have to name all your build files `build.*`.
+This plugin configures your build so that your build files are instead named the same as the project.
+
+For example, this project is called `better-build-file-names` so our root build file is called
+`better-build-file-names.gradle.kts`.
+
+## How it works
+
+This plugin, unlike pretty much all other Gradle plugins, is a `Settings` plugin, not a `Project` plugin.
+
+You apply this plugin to your `settings.gradle` or `settings.gradle.kts` file.
+
+## How to apply this plugin
+
+In your **`settings.gradle`** or **`settings.gradle.kts`** file, you need to declare the following:
+```kotlin
+buildscript {
+  repositories {
+    maven {
+      url = uri("https://plugins.gradle.org/m2/")
+    }
+  }
+  dependencies {
+    classpath("gradle.plugin.org.gradleweaver.plugins:better-build-file-names:0.0.1")
+  }
+}
+
+// Put all of your settings logic here
+// ...
+
+// Make sure this is the last line of your `settings.gradle` or `settings.gradle.kts` file.
+// See the reasoning below as to why this is necessary.
+apply(plugin = "org.gradleweaver.plugins.better-build-file-names")
+```
+
+## Limitations
+
+Currently, this plugin can not be applied using the `plugins` syntax similar to how they can be applied to
+project files. This is due to [this issue](https://github.com/gradle/gradle/issues/6710).
+
+The plugin must be applied as the last line of the settings script file.
+This is because there is no `afterEvaluate` mechanism offered on the `Settings` API.
