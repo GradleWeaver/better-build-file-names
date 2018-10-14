@@ -57,8 +57,9 @@ tasks.withType<Test>().configureEach  {
 
 val registeredPlugin = gradlePlugin.plugins.register("better-build-file-names") {
     id = "${project.group}.${project.name}"
+    displayName = "Better Build File Names"
     implementationClass = "org.gradleweaver.plugins.settings.BetterBuildFileNamesPlugin"
-    description = "A Gradle plugin for handling platform-specific dependencies and releases."
+    description = "Gives your build better default build file names."
 }
 
 pluginBundle {
@@ -67,7 +68,7 @@ pluginBundle {
     tags = listOf("jlink")
 
     plugins {
-        register("jlink-plugin") {
+        register("better-build-file-names") {
             id = registeredPlugin.get().id
             displayName = registeredPlugin.get().displayName
         }
