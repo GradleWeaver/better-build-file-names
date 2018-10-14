@@ -71,6 +71,7 @@ pluginBundle {
         register("better-build-file-names") {
             id = registeredPlugin.get().id
             displayName = registeredPlugin.get().displayName
+            description = registeredPlugin.get().description
         }
     }
 }
