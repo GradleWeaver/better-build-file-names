@@ -18,7 +18,7 @@ You apply this plugin to your `settings.gradle` or `settings.gradle.kts` file.
 ## How to apply this plugin
 
 In your **`settings.gradle`** or **`settings.gradle.kts`** file, you need to declare the following:
-```kotlin
+```groovy
 buildscript {
   repositories {
     maven {
@@ -29,19 +29,15 @@ buildscript {
     classpath("gradle.plugin.org.gradleweaver.plugins:better-build-file-names:0.0.1")
   }
 }
-
-// Put all of your settings logic here
-// ...
-
-// Make sure this is the last line of your `settings.gradle` or `settings.gradle.kts` file.
-// See the reasoning below as to why this is necessary.
+// For a settings.gradle.kts file
 apply(plugin = "org.gradleweaver.plugins.better-build-file-names")
+// For a settings.gradle file
+apply plugin: "org.gradleweaver.plugins.better-build-file-names"
+
+// Put the remainder of your build logic here.
 ```
 
 ## Limitations
 
 Currently, this plugin can not be applied using the `plugins` syntax similar to how they can be applied to
 project files. This is due to [this issue](https://github.com/gradle/gradle/issues/6710).
-
-The plugin must be applied as the last line of the settings script file.
-This is because there is no `afterEvaluate` mechanism offered on the `Settings` API.

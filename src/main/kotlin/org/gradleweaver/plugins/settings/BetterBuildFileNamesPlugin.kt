@@ -8,8 +8,9 @@ import java.io.File
 
 open class BetterBuildFileNamesPlugin: Plugin<Settings> {
     override fun apply(target: Settings) {
-        // This really needs to be in some sort of `afterEvaluate` block.
-        configureGradleBuild(target.rootProject)
+        target.gradle.settingsEvaluated {
+            configureGradleBuild(rootProject)
+        }
     }
 
     /**

@@ -25,6 +25,7 @@ dependencies {
     testCompile(junitJupiter(name = "junit-jupiter-engine"))
     testCompile(junitJupiter(name = "junit-jupiter-params"))
     testCompile(group = "org.junit-pioneer", name = "junit-pioneer", version = "0.2.2")
+    testCompile(group = "com.natpryce", name = "hamkrest", version = "1.6.0.0")
 }
 
 publishing {
