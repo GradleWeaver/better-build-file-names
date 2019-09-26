@@ -66,7 +66,7 @@ val registeredPlugin = gradlePlugin.plugins.register("better-build-file-names") 
 pluginBundle {
     website = "https://github.com/gradleweaver/better-build-file-names"
     vcsUrl = "https://github.com/gradleweaver/better-build-file-names"
-    tags = listOf("jlink")
+    tags = listOf("build-file-names", "conventions")
 
     plugins {
         register("better-build-file-names") {
