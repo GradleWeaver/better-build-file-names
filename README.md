@@ -17,6 +17,18 @@ You apply this plugin to your `settings.gradle` or `settings.gradle.kts` file.
 
 ## How to apply this plugin
 
+### Gradle 6.0 or later
+
+In your **`settings.gradle`** or **`settings.gradle.kts`** file, you need to declare the following:
+
+```groovy
+plugins {
+  id("org.gradleweaver.plugins.better-build-file-names") version "0.0.1"
+}
+```
+
+### Prior to Gradle 6.0
+
 In your **`settings.gradle`** or **`settings.gradle.kts`** file, you need to declare the following:
 ```groovy
 buildscript {
@@ -37,7 +49,7 @@ apply plugin: "org.gradleweaver.plugins.better-build-file-names"
 // Put the remainder of your build logic here.
 ```
 
-## Limitations
+#### Limitations
 
 Currently, this plugin can not be applied using the `plugins` syntax similar to how they can be applied to
 project files. This is due to [this issue](https://github.com/gradle/gradle/issues/6710).
